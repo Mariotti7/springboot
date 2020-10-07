@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="controller.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+
+		<form>
+
+			Id: <input type="number" ng-model="id" readonly>
+			</p>
+
+			Nome: <input type="text" ng-model="nome">
+			</p>
+
+			Data: <input type="date" ng-model="data">
+			</p>
+
+			<button ng-click="salvar()">salvar</button>
+
+		</form>
+	</div>
+</body>
+</html>
