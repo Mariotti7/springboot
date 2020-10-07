@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="controller.js"></script>
+<meta charset="UTF-8">
 </head>
 <body>
 	<div ng-app="myApp" ng-controller="myCtrl">
@@ -12,16 +13,34 @@
 
 			Id: <input type="number" ng-model="id" readonly>
 			</p>
-
 			Nome: <input type="text" ng-model="nome">
 			</p>
-
 			Data: <input type="date" ng-model="data">
 			</p>
 
-			<button ng-click="salvar()">salvar</button>
+
+			<button class="btn btn-success mb-4" ng-click="salvar()">salvar</button>
+			<button class="btn btn-success mb-4" ng-click="get()">get</button>
+
 
 		</form>
+		<table border="1">
+			<tr>
+				<th>id</th>
+				<th>nome</th>
+				<th>dia</th>
+				<th>valor</th>
+				<th>ações</th>
+			</tr>
+			<tr ng-repeat="servico in servicos">
+				<td>{{servico.id}}</td>
+				<td>{{servico.nome}}</td>
+				<td>{{servico.data}}</td>
+				<td>Não definido!</td>
+				<td>editar | excluir</td>
+			</tr>
+		</table>
+
 	</div>
 </body>
 </html>

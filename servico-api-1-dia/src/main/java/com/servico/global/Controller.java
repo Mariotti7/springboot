@@ -17,7 +17,7 @@ public class Controller {
 	@Autowired // responsavel por executar comandos previamente disponiveis do repositorio
 	private ServicoRepository repository;
 
-	@GetMapping("/servico")
+	@GetMapping("/servicos")
 	public List<ServicoModel> buscarTodos() {
 
 		return repository.findAll();
