@@ -47,7 +47,8 @@ public class TemaController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Tema> put(@RequestBody Tema tema){
+	public ResponseEntity<Tema> put(@PathVariable Long id, @RequestBody Tema tema){
+		tema.setId(id);
 		return ResponseEntity.ok(repository.save(tema));
 	}
 	

@@ -45,7 +45,8 @@ public class PostagemController {
 	}
 
 	@PutMapping
-	public ResponseEntity<Postagem> put(@RequestBody Postagem postagem){
+	public ResponseEntity<Postagem> put(@PathVariable Long id, @RequestBody Postagem postagem){
+		postagem.setId(id);
 		return ResponseEntity.ok(repository.save(postagem));
 	}
 
