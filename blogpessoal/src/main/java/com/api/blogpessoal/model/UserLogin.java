@@ -1,6 +1,12 @@
 package com.api.blogpessoal.model;
 
 public class UserLogin {
+	
+	private String usuario;
+
+	private String senha;
+
+	private String token;
 
 	private String nome;
 
@@ -36,10 +42,6 @@ public class UserLogin {
 		this.token = token;
 	}
 
-	private String usuario;
-
-	private String senha;
-
-	private String token;
+	
 
 }
