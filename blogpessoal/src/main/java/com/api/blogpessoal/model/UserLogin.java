@@ -1,14 +1,14 @@
 package com.api.blogpessoal.model;
 
 public class UserLogin {
-	
+
+	private String nome;
+
 	private String usuario;
 
 	private String senha;
 
 	private String token;
-
-	private String nome;
 
 	public String getNome() {
 		return nome;
@@ -42,6 +42,4 @@ public class UserLogin {
 		this.token = token;
 	}
 
-	
-
-}
+	}
