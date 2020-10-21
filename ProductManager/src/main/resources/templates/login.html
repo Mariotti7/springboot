@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+		<form  method="post" 
+		th:action="@{/login}">
+		
+	
+
+		<div>
+			<input type="text" id="inputEmail"
+				placeholder="Email address" name="username" required autofocus>
+			<label for="inputEmail">Email</label>
+			
+		</div>
+
+		<div>
+			<input type="password" id="inputPassword" 
+				placeholder="Password" name="password" required> 
+			<label>Senha</label>
+			<div>Digite sua senha.</div>	
+		</div>
+
+		<div >
+			
+		</div>
+		<button type="submit">Entrar</button>
+	
+	</form>
+</body>
+</html>

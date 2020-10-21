@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<style>
+
+
+</style>
+<link rel="stylesheet" href="style.css">
+<head>
+
+</head>
+<body>
+
+	<form action="#" th:action="@{/save}" th:object="${produtoview}"
+		method="post">
+		<div class="teste"> Nome produto <input type="text"  class="campo" th:field="*{nome}">
+		<hr>
+		Marca <input type="text" th:field="*{marca}">
+		<hr>
+		Criado em: <input type="text" th:field="*{criado_em}">
+		<hr>
+		Preço <input type="text" th:field="*{preco}" />
+		<hr>
+
+		<button type="submit">Save</button>
+
+	</form>
+
+</body>
+</html>
