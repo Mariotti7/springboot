@@ -29,6 +29,8 @@ public class Produto implements Serializable {
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
+	
+	private String numeroPedido;
 
 	protected Produto() {
 	}
@@ -78,6 +80,14 @@ public class Produto implements Serializable {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public String getNumeroPedido() {
+		return numeroPedido;
+	}
+
+	public void setNumeroPedido(String numeroPedido) {
+		this.numeroPedido = numeroPedido;
 	}
 	
 	

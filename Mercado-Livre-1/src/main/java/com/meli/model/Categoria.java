@@ -20,13 +20,19 @@ public class Categoria implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String descricao;
+
+	private String siglaCategoria;
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produto;
-	
+
+	@OneToMany(mappedBy = "categoriaProd", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("categoriaProd")
+	private List<ProdutoDevolucao> prodDevolucao;
+
 	protected Categoria() {
 	}
 
@@ -58,6 +64,21 @@ public class Categoria implements Serializable {
 	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
 	}
-	
-	
+
+	public String getSiglaCategoria() {
+		return siglaCategoria;
+	}
+
+	public void setSiglaCategoria(String siglaCategoria) {
+		this.siglaCategoria = siglaCategoria;
+	}
+
+	public List<ProdutoDevolucao> getProdDevolucao() {
+		return prodDevolucao;
+	}
+
+	public void setProdDevolucao(List<ProdutoDevolucao> prodDevolucao) {
+		this.prodDevolucao = prodDevolucao;
+	}
+
 }

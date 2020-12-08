@@ -16,47 +16,46 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.meli.model.Categoria;
-import com.meli.repository.CategoriaRepository;
+import com.meli.model.Marca;
+import com.meli.repository.MarcaRepository;
 
 @RestController
-@RequestMapping("/categoria")
+@RequestMapping("/marca")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class CategoriaController implements Serializable{
+public class MarcaController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
-	private CategoriaRepository rep;
+	private MarcaRepository rep;
 	
 	@GetMapping()
-	public ResponseEntity<List<Categoria>> getAll(){
+	public ResponseEntity <List<Marca>> getAllMarcas(){
 		return ResponseEntity.ok(rep.findAll());
 	}
 	
 	@GetMapping("/id/{id}")
-	public ResponseEntity<Categoria> getById(@PathVariable Long id){
+	public ResponseEntity<Marca> getByIdMarca(@PathVariable Long id) {
 		return rep.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/{descricao}")
-	public ResponseEntity<List<Categoria>> getByDescricao(@PathVariable String descricao){
-		return ResponseEntity.ok(rep.findAllByDescricaoContainingIgnoreCase(descricao));
+	@GetMapping("{nome}")
+	public ResponseEntity<List<Marca>> getByNomeMarca(@PathVariable Marca nomeMarca){
+		return ResponseEntity.ok(rep.findAllByNomeMarcaContainingIgnoreCase(nomeMarca));
 	}
 	
 	@PostMapping()
-	public ResponseEntity<Categoria> post(@RequestBody Categoria categoria){
-		return ResponseEntity.status(HttpStatus.CREATED).body(rep.save(categoria));
+	public ResponseEntity<Marca> postMarca(@RequestBody Marca marca){
+		return ResponseEntity.status(HttpStatus.CREATED).body(rep.save(marca));
 	}
 	
 	@PutMapping()
-	public ResponseEntity<Categoria> put(@RequestBody Categoria categoria){
-		return ResponseEntity.status(HttpStatus.OK).body(rep.save(categoria));
+	public ResponseEntity<Marca> putMarca(@RequestBody Marca marca){
+		return ResponseEntity.status(HttpStatus.OK).body(rep.save(marca));
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		rep.deleteById(id);
 	}
-
 }

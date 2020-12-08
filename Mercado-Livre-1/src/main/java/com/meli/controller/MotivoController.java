@@ -16,47 +16,47 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.meli.model.Categoria;
-import com.meli.repository.CategoriaRepository;
+import com.meli.model.Motivo;
+import com.meli.repository.MotivoRepository;
 
 @RestController
-@RequestMapping("/categoria")
+@RequestMapping("/motivo")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class CategoriaController implements Serializable{
+public class MotivoController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
-	private CategoriaRepository rep;
+	private MotivoRepository rep;
 	
 	@GetMapping()
-	public ResponseEntity<List<Categoria>> getAll(){
+	public ResponseEntity<List<Motivo>> getAllMotivos(){
 		return ResponseEntity.ok(rep.findAll());
 	}
-	
+
 	@GetMapping("/id/{id}")
-	public ResponseEntity<Categoria> getById(@PathVariable Long id){
-		return rep.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<Motivo> getByIdMotivo(@PathVariable Long id){ 
+	return rep.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/{descricao}")
-	public ResponseEntity<List<Categoria>> getByDescricao(@PathVariable String descricao){
-		return ResponseEntity.ok(rep.findAllByDescricaoContainingIgnoreCase(descricao));
+	@GetMapping("/{motivo}")
+	public ResponseEntity<List<Motivo>> getByDescricaoMotivoDevolucao(@PathVariable Motivo descricaoMotivoDevolucao){
+		return ResponseEntity.ok(rep.findAllByDescricaoMotivoDevolucaoContainingIgnoreCase(descricaoMotivoDevolucao));
 	}
 	
 	@PostMapping()
-	public ResponseEntity<Categoria> post(@RequestBody Categoria categoria){
-		return ResponseEntity.status(HttpStatus.CREATED).body(rep.save(categoria));
+	public ResponseEntity<Motivo> postMotivo(@RequestBody Motivo motivo){
+		return ResponseEntity.status(HttpStatus.CREATED).body(rep.save(motivo));
 	}
 	
 	@PutMapping()
-	public ResponseEntity<Categoria> put(@RequestBody Categoria categoria){
-		return ResponseEntity.status(HttpStatus.OK).body(rep.save(categoria));
+	public ResponseEntity<Motivo> putMotivo(@RequestBody Motivo motivo){
+		return ResponseEntity.status(HttpStatus.OK).body(rep.save(motivo));
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		rep.deleteById(id);
 	}
-
+	
 }
