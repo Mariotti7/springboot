@@ -33,6 +33,8 @@ public class Usuario implements Serializable {
 	
 	private String senha;
 	
+	private String foto;
+	
 	//OneToMany
 	@OneToMany(mappedBy = "compra", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("compra")
@@ -82,6 +84,16 @@ public class Usuario implements Serializable {
 	public void setCarrinho(List<Produto> carrinho) {
 		this.carrinho = carrinho;
 	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
+	
 	
 	
 	

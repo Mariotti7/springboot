@@ -1,6 +1,6 @@
 package com.universa.beauty.controler;
 
-import java.io.Serializable;
+import java.io.Serializable;	
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

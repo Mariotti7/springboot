@@ -2,6 +2,7 @@ package com.universa.beauty.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,12 +36,14 @@ public class Produto implements Serializable{
 	
 	private int quantidade;
 	
+	private String fotoProduto;
+	
 	//ManyToOne
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JsonIgnoreProperties("carrinho")
 	private Usuario compra;
 
@@ -111,6 +114,14 @@ public class Produto implements Serializable{
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+	}
+
+	public String getFotoProduto() {
+		return fotoProduto;
+	}
+
+	public void setFotoProduto(String fotoProduto) {
+		this.fotoProduto = fotoProduto;
 	}
 	
 	
